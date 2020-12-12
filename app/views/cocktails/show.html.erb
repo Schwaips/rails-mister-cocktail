@@ -1,0 +1,30 @@
+<h1>Cockail details</h1>
+
+<%= @cocktail.name %>
+
+<h3>Ingredient & doses</h3>
+<table class="table">
+   <tr>
+    <th>Ingredient</th>
+    <th>Description</th>
+  </tr>
+
+  <% @cocktail.doses.each do |dose| %>
+  <tr>
+    <td> <%= dose.ingredient.name %></td>
+    <td> <%= dose.description  %></td>
+    <td> <%= link_to  "Delete", cocktail_dose_path(@cocktail, dose), method: :delete, data:{ confirm: "Remove ingredient?" }  %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<%= link_to  "Back to the list", cocktails_path %>
+<br>
+<%= link_to  "Add doses & ingredient",  new_cocktail_dose_path(@cocktail) %>
+
+
+
+<div class="add-ing">
+<%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+</div>
