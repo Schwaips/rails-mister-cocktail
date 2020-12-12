@@ -1,0 +1,12 @@
+.create-cocktail {
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: solid 2px $beer;
+  width: 140px;
+}
+
+.create-cocktail :hover {
+  text-decoration: none;
+}
