@@ -1,9 +1,20 @@
-<h1>Create a cocktail</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 image-add">
+      <%= image_tag "cocktail-3-pink.jpg", class: "mw-100 h-50" %>
+    </div>
 
+      <div class="col-lg-4">
+          <h2>Create a cocktail</h2>
+            <div class="form-add-cocktail">
+              <%= simple_form_for(@cocktail) do |c| %>
+                <%= c.input :name, label: "Cocktail's name" %>
+                <%= c.input :image, label: "Provide URL for image" %>
+                <%= c.submit "Create cocktail", class: "btn btn-dark" %>
+              <% end %>
+            </div>
+      </div>
+  </div>
 
-<div class="form-add-cocktail">
-  <%= simple_form_for(@cocktail) do |c| %>
-    <%= c.input :name %>
-    <%= c.submit "Create cocktail", class: "btn btn-primary" %>
-  <% end %>
+  <%= link_to  "Back to the list", cocktails_path, class: "btn btn-warning" %>
 </div>

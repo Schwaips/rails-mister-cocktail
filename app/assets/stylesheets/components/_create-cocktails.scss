@@ -1,12 +1,21 @@
-.create-cocktail {
-  margin-bottom: 20px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  border: solid 2px $beer;
-  width: 140px;
+.btn-light {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.create-cocktail :hover {
-  text-decoration: none;
+
+.image-add {
+  margin-top: 30px;
+  width: 350px;
+  height: 400px;
 }
+
+// .image-add {
+//   background-image: image-url('cocktails_fumant.jpg');
+//   object-fit: cover;
+//   background-size: cover;
+//   width: 100%;
+//   height: 100vh;
+//   margin-right: 0px;
+// }
+

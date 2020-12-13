@@ -1,26 +1,23 @@
-<h1>Everything you need for a good cocktail party...</h1>
+<p class="home-title text-center">Everything you need to prepare your party</p>
 
-
-  <%= link_to new_cocktail_path, class: "text-decoration-none"  do %>
-    <div class="create-cocktail">
-      <i class="fas fa-plus-circle text-decoration-none"></i> <span>Create a new cocktail</span>
-    </div>
-  <% end %>
-
-
-
-<div class="row">
-    <% @cocktails.each do |cocktail| %>
-       <div class="col-lg-4">
-       <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
-          <div class="card-product">
-              <img src="<%= cocktail.image %>" />
-              <div class="card-product-infos">
-                <h2> <%= cocktail.name %> </h2>
-                <p></p>
-              </div>
-          </div>
+<div class="container">
+  <div class="text-center">
+    <%= link_to new_cocktail_path, class: "btn btn-light"  do %>
+      <div class="create-cocktail">
+        <i class="fas fa-plus-circle text-decoration-none"></i> <span>Create a new cocktail</span>
       </div>
-       <% end %>
     <% end %>
+  </div>
+
+  <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="cards col-lg-4">
+          <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=cocktail.image%>)">
+              <%= cocktail.name %>
+            </div>
+        </div>
+          <% end %>
+      <% end %>
+  </div>
 </div>
