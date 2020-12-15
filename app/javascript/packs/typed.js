@@ -1,11 +1,11 @@
 
 
 
-var typed = new Typed('.element', {
+var initTyped = new Typed('.element', {
   strings: ["First sentence.", "Second sentence."],
   typeSpeed: 30
 });
 
-export { typed };
+export { initTyped };
 
 
