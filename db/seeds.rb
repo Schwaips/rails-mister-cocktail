@@ -6,35 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'json'
+require 'open-uri'
 
-# SEEDING
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+readUrl = open(url).read
+parsing = JSON.parse(readUrl)
 
-# require 'json'
-# require 'open-uri'
+ingredient = parsing['drinks']
 
-# url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-# readUrl = open(url).read
-# parsing = JSON.parse(readUrl)
+puts "--starting seeding -- "
+ingredient.each do |ingredient|
+Ingredient.create!(name: ingredient['strIngredient1'])
+puts "Create #{ingredient['strIngredient1']}"
+end
 
-# ingredient = parsing['drinks']
+puts "--end seeds---"
 
-# puts "--starting seeding -- "
-# ingredient.each do |ingredient|
-# Ingredient.create!(name: ingredient['strIngredient1'])
-# puts "Create #{ingredient['strIngredient1']}"
-# end
+puts "--starting seeding -- "
+cocktails = Cocktail.all
+cocktails.each do |c|
+c.image = "https://source.unsplash.com/1600x900/?cocktails"
+c.save!
+puts "---adding picture for #{c.name}, url : #{c.image}"
+end
 
-# puts "--end seeds---"
-
-# puts "--starting seeding -- "
-# cocktails = Cocktail.all
-# cocktails.each do |c|
-# c.image = "https://source.unsplash.com/1600x900/?cocktails"
-# c.save!
-# puts "---adding picture for #{c.name}, url : #{c.image}"
-# end
-
-# puts "--end seeds---"
+puts "--end seeds---"
 require 'faker'
 
 20.times do
