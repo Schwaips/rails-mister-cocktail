@@ -7,10 +7,11 @@
       <div class="col-lg-4">
           <h2>Create a cocktail</h2>
             <div class="form-add-cocktail">
-              <%= simple_form_for(@cocktail) do |c| %>
-                <%= c.input :name, label: "Cocktail's name" %>
-                <%= c.input :image, label: "Provide URL for image" %>
-                <%= c.submit "Create cocktail", class: "btn btn-dark" %>
+              <%= simple_form_for(@cocktail) do |f| %>
+                <%= f.input :name, label: "Cocktail's name" %>
+                <%= f.input :image, label: "Provide URL for image" %>
+                <%= f.input :photo, as: :file %>
+                <%= f.submit "Create cocktail", class: "btn btn-dark" %>
               <% end %>
             </div>
       </div>

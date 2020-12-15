@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# Seeding ingredients
+
 require 'json'
 require 'open-uri'
 
@@ -33,13 +36,25 @@ puts "--end seeds---"
 
 # puts "--end seeds---"
 
+# creating cocktails
 puts "--starting feeding cocktails ---"
 require 'faker'
 
 20.times do
-  c = Cocktail.new(name: Faker::Creature::Animal.name, image: "https://source.unsplash.com/1600x900/?cocktails" )
+
+  c = Cocktail.new(name: Faker::Creature::Animal.name, image: "https://source.unsplash.com/1600x900/?#{Faker::Creature::Animal.name}" )
+  file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+  c.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   c.save!
   puts "#{c.name} is saved!"
+  # seeding attachement
+
 end
 
 puts "--end seeding cocktails---"
+
+# Seeding Picture
+
+# file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+# cocktail = Cocktail.new(title: 'NES', body: "A great console")
+# cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
