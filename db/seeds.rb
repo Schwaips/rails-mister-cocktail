@@ -42,4 +42,4 @@ require 'faker'
   puts "#{c.name} is saved!"
 end
 
-puts "--end seeding cocktails---
+puts "--end seeding cocktails---"
