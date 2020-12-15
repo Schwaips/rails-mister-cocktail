@@ -15,7 +15,7 @@ parsing = JSON.parse(readUrl)
 
 ingredient = parsing['drinks']
 
-puts "--starting seeding -- "
+puts "--starting seeding ingredient -- "
 ingredient.each do |ingredient|
 Ingredient.create!(name: ingredient['strIngredient1'])
 puts "Create #{ingredient['strIngredient1']}"
@@ -23,15 +23,17 @@ end
 
 puts "--end seeds---"
 
-puts "--starting seeding -- "
-cocktails = Cocktail.all
-cocktails.each do |c|
-c.image = "https://source.unsplash.com/1600x900/?cocktails"
-c.save!
-puts "---adding picture for #{c.name}, url : #{c.image}"
-end
+# puts "--starting seeding -- "
+# cocktails = Cocktail.all
+# cocktails.each do |c|
+# c.image = "https://source.unsplash.com/1600x900/?cocktails"
+# c.save!
+# puts "---adding picture for #{c.name}, url : #{c.image}"
+# end
 
-puts "--end seeds---"
+# puts "--end seeds---"
+
+puts "--starting feeding cocktails ---"
 require 'faker'
 
 20.times do
@@ -39,3 +41,5 @@ require 'faker'
   c.save!
   puts "#{c.name} is saved!"
 end
+
+puts "--end seeding cocktails---
