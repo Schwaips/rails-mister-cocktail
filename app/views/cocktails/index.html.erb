@@ -14,12 +14,13 @@
       <% @cocktails.each do |cocktail| %>
         <div class="cards col-lg-4">
           <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+             url(
                <% if cocktail.photo.attached? %>
-                <%= cl_image_path "cocktail-default" %>
-                  <%= cl_image_path cocktail.photo.key%>
-                  <% else %>
-                    <% end %>)">
+                  <%= cl_image_path cocktail.photo.key %>
+                <% else %>
+                  <%= cl_image_path "cocktail-default" %>
+                <% end %>)">
               <%= cocktail.name %>
             </div>
         </div>
