@@ -1,4 +1,14 @@
-<p class="home-title text-center">Everything you need to prepare your party</p>
+<p class="home-title text-center"></p>
+
+
+<div class="banner">
+
+</div>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Everything you need to prepare your party
+</div>
+
 
 <div class="container">
   <div class="text-center">
@@ -10,21 +20,31 @@
   </div>
   <br/>
 
+      <% if @cocktails.empty?  %>
+              <p class="text-center">Sorry, we did not find anything =( </p>
+                <div class="d-flex justify-content-center flex-row align-items-center">
+                  <%= cl_image_tag "verrevide" %>
+                </div>
+              <br>
+      <% else %>
   <div class="row">
-      <% @cocktails.each do |cocktail| %>
-        <div class="cards col-lg-4">
-          <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-             url(
-               <% if cocktail.photo.attached? %>
-                  <%= cl_image_path cocktail.photo.key %>
-                <% else %>
-                  <%= cl_image_path "cocktail-default" %>
-                <% end %>)">
-              <%= cocktail.name %>
+
+
+          <% @cocktails.each do |cocktail| %>
+            <div class="cards col-lg-4">
+              <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url(
+                  <% if cocktail.photo.attached? %>
+                      <%= cl_image_path cocktail.photo.key %>
+                    <% else %>
+                      <%= cl_image_path "cocktail-default" %>
+                    <% end %>)">
+                  <%= cocktail.name %>
+                </div>
             </div>
-        </div>
+              <% end %>
           <% end %>
-      <% end %>
   </div>
+      <% end %>
 </div>

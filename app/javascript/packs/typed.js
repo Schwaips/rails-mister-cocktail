@@ -1,11 +1,12 @@
 
+import Typed from 'typed.js';
 
+var options = {
+  strings: ['Choose among thebest cocktails', 'And create your own'],
+  typeSpeed: 90,
+  loop: true
+};
 
-var initTyped = new Typed('.element', {
-  strings: ["First sentence.", "Second sentence."],
-  typeSpeed: 30
-});
+var initTyped = () => { new Typed('.typed-strings', options) };
 
 export { initTyped };
-
-

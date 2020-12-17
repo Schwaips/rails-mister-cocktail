@@ -4,18 +4,15 @@
 // that code so it'll be compiled.
 
 import 'bootstrap';
+import { initTyped } from './typed.js';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { initTyped } from 'typed.js'
-
-typed();
 
 document.addEventListener('turbolinks:load', () => {
-
   initTyped();
 });
 
