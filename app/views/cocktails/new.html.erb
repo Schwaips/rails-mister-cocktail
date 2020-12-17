@@ -1,14 +1,6 @@
 <div class="container">
 
-
-
-
-
-
-
-
-
-
+<br><br>
   <div class="row">
     <div class="col-lg-6 image-add">
       <%= image_tag "cocktail-3-pink.jpg", class: "mw-100 h-50" %>
@@ -19,7 +11,6 @@
             <div class="form-add-cocktail">
               <%= simple_form_for(@cocktail) do |f| %>
                 <%= f.input :name, label: "Cocktail's name" %>
-                <%= f.input :image, label: "Provide URL for image" %>
                 <%= f.input :photo, as: :file %>
                 <%= f.submit "Create cocktail", class: "btn btn-dark" %>
               <% end %>

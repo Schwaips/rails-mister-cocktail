@@ -2,7 +2,7 @@
 import Typed from 'typed.js';
 
 var options = {
-  strings: ['Choose among thebest cocktails', 'And create your own'],
+  strings: ['Choose among thebest cocktails', 'Discover the best cocktails around the world and create your own'],
   typeSpeed: 90,
   loop: true
 };
