@@ -1,5 +1,6 @@
 class CocktailsController < ApplicationController
 
+
   def index
     @cocktails = Cocktail.all
     if params[:query].present?
@@ -12,6 +13,14 @@ class CocktailsController < ApplicationController
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
+
+     respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@cocktail.name}"   # Excluding ".pdf" extension.
+      end
+    end
+
   end
 
 
