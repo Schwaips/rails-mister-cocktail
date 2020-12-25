@@ -8,7 +8,7 @@
 <div class="container">
 
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktail.photo.attached? ? cl_image_path(@cocktail.photo.key, crop: :fit) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg' %>">
-   <h1><%= @cocktail.name.upcase %></h1>
+   <h1>Recipe for <%= @cocktail.name.upcase %></h1>
 </div>
 
 
@@ -22,7 +22,6 @@
               <tr>
                 <th>Ing.</th>
                 <th>Description</th>
-                <th>Options</th>
                 </tr>
                 <% if @cocktail.doses.empty? %>
                   <p>No ingredient yet, add some!</p>
@@ -31,7 +30,6 @@
                 <tr>
                   <td><%= dose.ingredient.name %></td>
                   <td><%= dose.description %></td>
-                  <td><%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %><i class="far fa-trash-alt"></i><% end %></td>
                 </tr>
                 <% end %>
               <% end %>
@@ -39,20 +37,7 @@
       </div>
     </div>
 
-    <div class="col-6 p-5 ">
-    <p>Add ingredient</p>
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.association :ingredient, label: "Ingrédient" %>
-        <%= f.input :description %>
-        <%= f.button :submit, 'Add ingredient', class: "btn btn-secondary " %>
-      <% end %>
-      <br>
-
-    </div>
-
   </div>
   <br>
-  <%= link_to  "Back to the list", cocktails_path, class: "btn btn-warning" %>
-
 </div>
 
