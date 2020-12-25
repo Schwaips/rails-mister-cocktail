@@ -52,10 +52,11 @@
 
   </div>
   <br>
+  <%= link_to  "Save recipe as PDF", cocktail_path(format: :pdf), class: "btn btn-success m-3 text-white" %>
   <%= link_to  "Back to the list", cocktails_path, class: "btn btn-warning" %>
   <br>
   <br>
-  <%= link_to  "Save as PDF", cocktail_path(format: :pdf), class: "btn btn-success" %>
+
 
 <br><br>
 

@@ -5,6 +5,7 @@
 
 import 'bootstrap';
 import { initTyped } from './typed.js';
+// import { initScroll } from './t-scroll.js';
 
 
 require("@rails/ujs").start()
@@ -15,6 +16,7 @@ require("channels")
 
 document.addEventListener('turbolinks:load', () => {
   initTyped();
+  initScroll();
 });
 
 

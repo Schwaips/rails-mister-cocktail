@@ -1,6 +1,6 @@
 
 const initScroll = () => { Tu.tScroll({
-  't-element': '.zoomIn'
-}) };
+  't-element': '.zoomIn .t-animated'
+})};
 
 
