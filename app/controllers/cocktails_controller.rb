@@ -3,6 +3,12 @@ class CocktailsController < ApplicationController
 
   def index
     @cocktails = Cocktail.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @cocktails }
+    end
+
+
     if params[:query].present?
       @cocktails = Cocktail.where('name ILIKE ?', "%#{params[:query]}%")
     else
@@ -14,7 +20,7 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
 
-     respond_to do |format|
+    respond_to do |format|
       format.html
       format.pdf do
         render pdf: "#{@cocktail.name}"   # Excluding ".pdf" extension.

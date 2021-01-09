@@ -7,8 +7,11 @@
     <link type="text/css" rel="stylesheet" href="./public/theme/css/t-scroll.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# select 2 css file %>
+     <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
   </head>
 
   <body>
@@ -27,7 +30,8 @@
           <li class="nav-item active">
               <form action="/cocktails">
                 <div class="form-group d-flex align-items-center">
-                  <input type="search" class="form-control search-control" name="query" id="search" placeholder="Ex Mojito" method="GET">
+                 <select id="search" class="select2 form-control search-control" name="query" placeholder="Type a drink" method="GET"></select>
+                  <%# <input type="search" class="form-control search-control" name="query" id="search" placeholder="Ex Mojito" method="GET"> %>
                   <button type="submit" class="btn btn-secondary"> Search </button>
                 </div>
               </form>

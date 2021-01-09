@@ -6,7 +6,7 @@
 import 'bootstrap';
 import { initTyped } from './typed.js';
 // import { initScroll } from './t-scroll.js';
-
+import { select2 } from './select2.js';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -16,7 +16,8 @@ require("channels")
 
 document.addEventListener('turbolinks:load', () => {
   initTyped();
-  initScroll();
+  // initScroll();
+  select2();
 });
 
 
